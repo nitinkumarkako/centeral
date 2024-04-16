@@ -1,0 +1,49 @@
+                                Postfix Configuration
+
+
+1. Install the Packages of Postfix on redhat 
+    Yum install postfix s-nail
+
+2. Change the configuration file “ /etc/postfix/main.cf ”  and search relayhost ,myhostname           and add new lines
+     Relayhost= [smtp.gmail.com]:587
+     Myhostname= localhost.localdomain
+
+     # new lines add
+      # Location of sasl_passwd we saved 
+     smtp_sasl_password_maps = hash:/etc/postfix/sasl/sasl_passwd
+     
+     # Enables sasl authentication for postfix
+      smtp_sasl_auth_enable = yes
+      smtp_tls_security_level = encrypt
+      
+     # Disallow methods that allow anonymous authentication
+      smtp_sasl_security_option = noanonymous
+
+3. Create a file under /etc/postfix/sasl/
+     mkdir /etc/postfix/sasl
+     touch /etc/postfix/sasl/sasl_passwd
+    
+4. Enter the data in the file of postfix /etc/postfix/sasl/sasl_passwd
+    vi /etc/postfix/sasl/sasl_passwd
+     [smtp.gmail.com]:587 yourgmail:password of Gmail
+
+
+5. Convert the sasl_passwd file into the db file
+	postmap /etc/postfix/sasl/sasl_passwd
+        rm -rvf /etc/postfix/sasl/sasl_passwd
+
+
+6. Change permission of db file
+        chmod 600 dbfile_name
+
+7. Start and Enable the Postfix service
+   systemctl start postfix.service     
+   systemctl enable postfix.service     
+
+8. Send the mail through postfix using mail command
+   echo "Mail data" | mail -s "subject" gmail_address@gmail.com
+
+9. Attach the file with mail	
+	echo "Mail data" | mail -s "subject" -a file_name gmail_address@gmail.com
+
+
