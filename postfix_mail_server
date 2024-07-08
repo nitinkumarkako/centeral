@@ -4,7 +4,7 @@
 1. Install the Packages of Postfix on redhat 
     Yum install postfix s-nail
 
-2. Change the configuration file “ /etc/postfix/main.cf ”  and search relayhost ,myhostname           and add new lines
+2. Change the configuration file “ /etc/postfix/main.cf ”  and search relayhost ,myhostname and add new lines
      Relayhost= [smtp.gmail.com]:587
      Myhostname= localhost.localdomain
 
