@@ -47,3 +47,8 @@
 	echo "Mail data" | mail -s "subject" -a file_name gmail_address@gmail.com
 
 
+
+For trace ssh,http and all open ports and grep all activity related open port 
+
+nmap -p0- -v -A -T4 192.168.24.38
+
