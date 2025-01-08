@@ -1,0 +1,459 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang16393{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset2 Symbol;}}
+{\colortbl ;\red255\green255\blue0;\red0\green255\blue255;}
+{\*\generator Riched20 10.0.19041}\viewkind4\uc1 
+\pard\sa200\sl240\slmult1\qc\ul\b\i\f0\fs32\lang9 <<===SHELL SCRIPT===>>\par
+
+\pard\sa200\sl240\slmult1\i0\fs36 What is Shell Scritp\ulnone  :-\b0  \fs28 Shell scritp is a automation  in linux. For example  when we did our daily bases work and this work consuming like 30 minutes so that we are doing this work through shell scritp so daily we exicute only our shell file and this file do our work only 5 minutes.\par
+All BASH SHELL Script define file name *.sh\par
+\b For example :-\b0  vim my_first_shell_script.sh\par
+
+\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl240\slmult1 Show all shell in linux :- cat /etc/shells\par
+
+\pard\sa200\sl240\slmult1\ul\b Why we write see bang \{#!/bin/bash\} in shell\ulnone  :-\ul\b0\par
+
+\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl240\slmult1\ulnone when we write any shell scritp without "#!/bin/bash" so they script run the bydefault "/bin/sh" shell and when we write "#!/bin/bash" so they script run "/bin/bash" shell. \ul\b\i\fs32\par
+{\pntext\f1\'B7\tab}\ulnone\b0\i0\fs28 If you run the bash script as a normal user so first of all you give the exicute(x) permission of bash file.\ul\b\i\fs32\par
+
+\pard\sa200\sl240\slmult1\i0\fs36 First shell script with echo command\ulnone  :-\ul\par
+\ulnone\b0\i\fs32 echo "hello this is my first shell script"\par
+
+\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl240\slmult1\highlight1\i0 If you want give message with colore like if system give any error so user get error in red colore\par
+
+\pard\sa200\sl240\slmult1\highlight0\i echo -e "\\033[0;31m fail message here"  #red colore\par
+echo -e "\\033[0;32m success message here" #green colore\par
+echo -e "\\033[0;33m warning message here" #yellow colore \par
+
+\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl240\slmult1\highlight1\i0 If you want wirte the content in one line so you use the echo command.\par
+
+\pard\sa200\sl240\slmult1\highlight0\i echo "hello \par
+nitin\par
+kumar " #this command print  same output \par
+echo -e "hello \\ \par
+nitin \\\par
+kumar \\"\i0  #in this command when this script be exicute so that time give the output in one because backslas(\\) is add seprate lines in one line.\par
+\i use of "\\t"\par
+\i0 when we enter "nitin \\t kumar" and when we exicute this command so that time system will show the outpute difference between nitin and kumar of one tab space.\par
+\i use of "\\v" horizantel tab\par
+use of "\\n" new line \par
+\ul\b\i0\fs36 Variables use and deffine\ulnone  :- \ul\par
+\ulnone\b0\fs32 what is variable :- Variables is a name so store a value in a word. And thise are two types-\par
+1. User deffine Variables\par
+2. System deffine Variables\par
+\ul\b User deffine Variables\ulnone  :-\par
+\b0 name="Nitin Kumar" village="Kakoda" Education="BCA From Gaandi Univercity"\par
+Use in shell script like\par
+echo "My name is $name and my vilage is $village and i completed my graduate from $Education \par
+\b 2 way of deffine variables \par
+\b0 echo "my name is $\{name\}"\par
+\b\fs36 2. \ul System deffine Variables\ulnone  :- \b0\fs32 Systems deffine variables means system already deffine our some variables like HOME,SHELL,OSTYPE,PATH,$ etc.\par
+\i echo $HOME #show the user login home directory\par
+echo $\{SHELL\} #SHOW THE WHICH SHELL CURRENTY USE BY USER\par
+echo $\{OSTYPE\} #show the ostype \par
+echo $\{$\} #show the current running process \b id\par
+\b0 echo $\{SECONDS\} #How much time consuming this script \b\par
+\i0 If you want show all system deffine variable :- \par
+\b0\i env # This command show all variables \par
+\ul\b\i0\fs36 Read Variable \ulnone :- \b0\par
+\fs32\tab\tab\tab Read variable use for take a input from user. When we define the read variable ahead we give variable name because when we exicute the script so user input will be store in variable. If we did not give any variable name ahead the Read varable so by default sotre the user input in \highlight1\b REPLY\b0  \highlight0 variable this variable \highlight2 created by system define variable.\highlight0                                                                                                                                                                                                                                 \par
+\b Options of read variable :-\b0\par
+\b -p :- \b0 print the message p means promt.\par
+\b exp: \b0 read -p "Please enter your name :-" name\par
+\tab echo "your name is $name"\par
+\b -s :- \b0 s means secure this option use for hide the user input like \tab password.\par
+\b exp: \b0 read -p "please enter your password :-" -s pass\par
+\tab echo "your password is $pass"\par
+\b -a:- \b0 This option allows the input to be stored in an array.\par
+\b exp:\b0\tab read -a arr\par
+\tab echo "First element: $\{arr[0]\}"\par
+\b -t:-   \b0 Allows you to set a time limit for input (in seconds).\par
+\b exp: \b0 read -t 5 -p "You have 5 seconds to enter your name: " \par
+\b -n:-\b0   Allows you to specify the number of characters to be read.\par
+\b exp: \b0 read -n 5 -p "please enter your name in 5 character only :-" \par
+If you show your script output in new line show please enter echo command after using read variable for example like that -\par
+\b exp: \b0 read -p "please enter your password :-" -s pass\par
+\tab echo "your password is $pass"\par
+\tab echo \par
+\ul\b\fs36 Command line Argument \ulnone :- \b0\par
+\fs32\tab\tab\tab\tab\tab command line agrument when we will give then exicute the script. we ahead set the argument when we will exicute the script and we define the argument in script \highlight2 $\{0\} $\{1\} $\{2\} $\{3\}  \highlight0 like that.\par
+\i $\{0\} :- Show the script file name.\par
+$\{1\} :- First argument.\par
+$\{2\} :- Second argument.\par
+$\{#\} :- count the total number of argument.\par
+$\{*\} :- show all arguments.\par
+$\{@\} :- show all arguments.  \par
+\b\i0\fs36 Define the argument in script :-\par
+\b0\fs32\tab\i echo "your name is $\{1\} and your age is $\{2\} ." > \tab argument.sh\par
+\tab ./argument.sh ram 30\par
+\b\i0 output :- \par
+\b0\tab your name is nitin and your age is 30.\par
+\ul\b\fs36 How to store command output in a variable \ulnone :- \b0\par
+\fs32 like we are store the pwd command output in variable \par
+\b exp : \b0\i working_dir=`pwd`\par
+\tab working_dir_second_mathod=$(pwd)\par
+\tab echo $\{working_dir\}\par
+\tab echo $\{working_dir_second_mathod\}\par
+\ul\b\i0\fs36 Readonly variable \ulnone :-\b0\par
+\fs32\tab\tab\tab\tab this variable when we will use then define the  permanent value of any variable.\par
+\i name="ram"\par
+echo "your name is $\{ram\}"\par
+name="shayam"\par
+echo "your name is $\{name\}"\par
+\b\i0 output :- \b0\par
+\i your name is ram\par
+your name is shayam\par
+\i0 now we use the \b readonly\b0  variable so\par
+\i name="ram"\par
+readonly name\par
+echo "your name is $\{name\}"\par
+name="shyam"\par
+echo "your name is $\{name\}"\par
+\b\i0 output :-\par
+\b0\i your name is ram\par
+error: you define the readonly variable on name variable  \par
+\ul\b\i0\fs36 Convert a string to Upper and Lower case \ulnone :- \b0\par
+\fs32 I use a variable \par
+\b\i profile\b0 =" my name is nitin kumar and i am from rajsthan"\par
+echo \b "$\{profile^\}" \b0 #this charactor do first letter in uppercase \par
+echo "\b $\{profile^^\}\b0 "# if we use two type so he convert all charactor in Upper case.\par
+\b new_profile\b0 ="Hello my name is nagesh"\par
+echo " \b $\{new_profile,\}\b0  "# comma do the first letter in lower case.\par
+echo " \b $\{new_profile,,\} \b0 " # convert all string in lower case\par
+\i0 If you want \b calculate the string \b0 value \par
+\i echo "length of string variable is \b $\{#new_prof\} \b0 " ile#count the string values.\par
+\ul\b\i0\fs36 If you want replace the value of any variable :-\par
+\ulnone\b0\i\fs32 name="nitin kumar"\par
+\i0 Now i want to replace the value of name variable I should                        replace nitin word to nagesh word.\par
+\i\tab echo \b "$\{name/nitin/nagesh\}"\par
+\b0\tab family="my name is nitin kumar and my brother name is  \tab nagesh kumar"\par
+\i0 now i want replace the value of all kumar string to kumawat \par
+\i\tab echo \b "$\{family//kumar/kumawat\}"\b0\par
+\i0 Remove any word in variable \par
+\i\tab  #remove the kumar \par
+\tab echo \b "$\{family/kumar\}"\par
+\b0\tab #for all remove kumar\par
+\tab echo \b "$\{family//kumar\}"\par
+\highlight2\i0 Set default value of a Variable :-\highlight0\par
+\b0\i read -p "enter your name :-" name\par
+name=$\{name: -please enter your name\}\par
+echo "welcome, $name" #if user do not enter own name and direct press the enter botton that time user obtain "please enter your name" message.\par
+\ul\b\i0\fs36 Check the command line variable passed or not \ulnone :- \par
+\fs32 : (\b0 colun check the variable\b )\i\par
+\b0 name=nitin\par
+\highlight2 :   $\{name:?" please enter your name"\} \highlight0 # if user set the variable so give the output "i am here" otherwise system generate the error and show the output"please enter your name"\par
+echo "i am here"\par
+\ul\b\i0\fs36 Airthmetic Operations :- \par
+\ulnone\b0\i\fs32 a=4\par
+b=5\par
+echo "$((a+b))" # add\par
+echo "$((a*b))" # Multiply\par
+echo "$((a/b))" #devide\par
+echo "$((a++))" #  a=a+1\par
+echo "$((a**5))" $ a=4\super 5\par
+\ul\nosupersub\b\i0 Use of Functions\ulnone  :- \b0  \i If we are create a script of installation and deployment but this script wright in long lines we dont know where is inatallations code and where is deployment code that's reason we use the functions.\i0\par
+\i we are define the function in three way \par
+function function_name()\{\par
+###inatallation###\par
+echo "installation"\par
+\}\par
+function_name #call the function \par
+function_name()\{\par
+####configuration#####\par
+echo "configuration" \}\par
+function_name #call the function\par
+function function_name  \{\par
+####deployment###\par
+echo "deployment"\par
+\}\par
+function_name #call the function\par
+\highlight2\b\i0 pass the arguments in function :-\highlight0\par
+\b0\i function function_name()\{\par
+echo "installation $\{1\}"\par
+\}\par
+function deploy()\{\par
+echo "deploy $\{1\}"\par
+\}\par
+function_name nginx\par
+deploy nginx\par
+\highlight2\b call the funciton name in function :-\par
+\highlight0\b0 function nitin()\{\par
+echo "start $\{FUNCNAME" \par
+echo "hello nitin"\par
+echo "$\{FUNCNAME\} end" #system define variable\par
+\ul\b\i0 Set the variable in function \ulnone :-\b0  \i When we set the variable in function so that variable we can use globly but you want that variable use only in your function how we can do this\i0  \par
+\i function installation()\{\par
+yum install nginx \par
+name=nginx # It's globly variable \par
+\}\par
+echo "Installed package is $\{name\}"\par
+now we can use only in the function \par
+function install()\{\par
+yum install httpd\par
+local name=httpd # It's use only in function \par
+echo "this package is $\{name\}\par
+\}\par
+\ul\b\i0 $? :- \ulnone\b0\i This command check the previous commad status that is successfuly exicuted or not if that command successfuly exicuted so after that exicute echo $? show the 0 status if that command not exicuted successfuly so he give the random number.\par
+i run the some command in terminal\par
+grepp\par
+echo "$?" \par
+output : 1 # Mean command not exicuted successfuly\par
+\ul\b\i0  test command use in if else comdition\ulnone  :- \b0 test command we use most probably in conditions statment when we define the "if else" condition like that if [ ] this bracket is test command.\par
+\highlight2\b The test command returns:\par
+
+\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl240\slmult1\highlight0\b0\i     0 (true) if the condition is true\par
+{\pntext\f1\'B7\tab}    1 (false) if the condition is false\par
+{\pntext\f1\'B7\tab}    2 (invalid syntax or wrong arguments)\par
+
+\pard\sa200\sl240\slmult1\highlight2\b\i0 These conditions compare integer values.\par
+
+\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl240\slmult1\highlight0\b0\i     NUM1 -eq NUM2: Checks if two numbers are equal.\par
+{\pntext\f1\'B7\tab}    NUM1 -ne NUM2: Checks if two numbers are not equal.\par
+{\pntext\f1\'B7\tab}    NUM1 -lt NUM2: Checks if NUM1 is less than NUM2.\par
+{\pntext\f1\'B7\tab}    NUM1 -le NUM2: Checks if NUM1 is less than or equal to NUM2.\par
+{\pntext\f1\'B7\tab}    NUM1 -gt NUM2: Checks if NUM1 is greater than NUM2.\par
+{\pntext\f1\'B7\tab}    NUM1 -ge NUM2: Checks if NUM1 is greater than or equal to NUM2.\par
+
+\pard\sa200\sl240\slmult1\ul\b\i0 Conditional statemantes \ulnone :- \b0  \i we use conditional statemantes there we give condition like if user write the wright passwrod so user get "successfully login" if user wite the wrong password so user obtain "login failed".\par
+we use if else conditon :-\par
+a=secret\par
+read -p "enter the account password:-" pass\par
+if test $\{pass\} -eq $\{a\}\par
+then\par
+\tab echo "successfully login"\par
+else\par
+\tab echo "lgin failed"\par
+fi # close the if condition\par
+\highlight2\b\i0 These conditions check for specific file attributes.\par
+\highlight0\b0\par
+
+\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl240\slmult1\i     -e FILE: Checks if the file exists.\par
+{\pntext\f1\'B7\tab}    -b FILE: Checks if the file is a block file \{partition name\}.\par
+{\pntext\f1\'B7\tab}   -c FILE: Checks if the file is a charactor file.\par
+{\pntext\f1\'B7\tab}    -f FILE: Checks if the file is a regular file (not a directory                                        or special file).\par
+{\pntext\f1\'B7\tab}    -d FILE: Checks if the file is a directory.\par
+{\pntext\f1\'B7\tab}    -r FILE: Checks if the file is readable.\par
+{\pntext\f1\'B7\tab}    -w FILE: Checks if the file is writable.\par
+{\pntext\f1\'B7\tab}    -x FILE: Checks if the file is executable.\par
+{\pntext\f1\'B7\tab}    -s FILE: Checks if the file has a size greater than zero.\par
+{\pntext\f1\'B7\tab}    -L FILE: Checks if the file is a symbolic link.\par
+{\pntext\f1\'B7\tab}   -z String is empty.\par
+{\pntext\f1\'B7\tab}  -n String is not empty.\par
+
+\pard\sa200\sl240\slmult1\highlight2\b\i0 we want check the particular file in paritucalr location exist or not :-\highlight0\b0\par
+\i #!/bin/bash\par
+read -p "enter file name:- " file_name\par
+if test -e $\{file_name\} \par
+then\par
+\tab echo "file exist"\par
+else \par
+\tab echo "file did not exist"\par
+fi # close the "if" condition\par
+\b\i0 When we do the comparison between strings :-\par
+\b0 #!/bin/bash\par
+name="nitin kumar"\par
+if [[ $\{name\} == nitin kumar ]] # double squre breackets we use for string values \par
+then\par
+\tab echo "both are equal"\par
+fi\par
+\b Check the file size is 0 :-\par
+\b0\i read -p "please enter the path with file name:- " file\par
+if [[ -s $\{file\} ]]\par
+then\par
+\tab echo "file size is ZERO"\par
+fi \par
+\highlight2\b\i0 & Operator use :- \b0  \highlight0\i we are use the & operator when we exicute the multipal conditions and all contitions show be true if any one condition is wrong so our script will sotp that time. for example we are create a script for redhat os type \par
+os_type=Linux\par
+if [[ $\{os_type\} -eq Linux ]] && [[ $\{UID\} -eq 0 ]]\par
+then\par
+\tab yum install openssh-server -y && echo "successfully run"\par
+\tab fi\par
+# && mean if yum command will be exicute the successfully after that run the echo command if by chance yum command failed so echo command will be not exicute.\par
+if elif conditions :-\par
+read -p "please enter your number :- " number\par
+if [[ $\{number\} -ge 50 ]] && [[ $\{number\} -lt 80 ]]\par
+then\par
+\tab echo "you achive C grade"\par
+elif [[ $\{number\} -ge 80 ]] && [[ $\{number\} -lt 90 ]]\par
+then\par
+\tab echo "you achive B grade"\par
+elif [[ $\{number\} -ge 90 ]] && [[ $\{number\} -le 100 ]]\par
+then\par
+\tab echo "congrates you achive A grade"\par
+else\par
+\tab echo "you fail"\par
+fi\par
+\ul\b\i0 Case statement \ulnone :- \b0\i case statement we use for take the input from user like we show the 3 options, user give the one option he want first option is show all files and directory in your cureent working directory second is show only files\par
+\b #!/bin/bash\par
+\b0 service_state=$\{1\}\par
+# start,restart,stop\par
+case $\{service_state\} in\par
+start)\tab\tab # write condition what you want\par
+\tab echo "starting service"\par
+\tab ;; \tab # close this condition\par
+stop)\par
+\tab echo "stoping service"\par
+\tab ;;\tab # close this conditon\par
+restart) \tab #write condition what you want\par
+\tab echo "restarting service"\par
+\tab ;; \tab #close this condition\par
+*) \par
+\tab echo "please write proper state of service"\par
+\tab ;;\par
+esac\tab\tab #close the case statement\par
+\b bash case.sh start\par
+\b0 output :- starting service\par
+bash case.sh help\par
+output :- please write proper state of service \par
+\highlight2\b\i0 If any case you use range of number :-\b0  \highlight0\i like i want a create script of age like 1-12 child,13-18 teenager,19-59 adult,60+ senior.\par
+#!/bin/bash \par
+read -p "please enter your age:- " age\par
+case $\{age\} in\par
+0[0-9]|1[0-2]) # 0-9, 10-12\par
+\tab echo "child"\par
+;;\par
+1[3-8])    #  13-18\par
+\tab echo "teenager"\par
+;;\par
+1[9]|[2-5][0-9])\tab # 19, 20-59\par
+\tab echo "adult"\par
+;;\par
+[6-9][0-9])\tab\tab # 60-99\par
+echo "senior"\par
+;;\par
+esac\par
+\b explain :- \b0 0[0-9]|1[0-2]) \par
+0 :  start to fist number\par
+[0-9] : second number is 0 to 9 like 01,02,03,04,05,06,07,08,09\par
+| : and operator \par
+1 : start to first number\par
+[0-2] : second number start 0 to 2 like 10,11,12\par
+\ul\b\i0 While loop \ulnone :- \b0\i we are use the while loop for repeat the condition and while loop untill then repeat the condition  until the condition be the true. when the condition will be true after that while loop stop.\par
+Putting It All Together: ^[0-9]+$\par
+\par
+    ^ - The string must start with something that matches the pattern.\par
+    [0-9] - The pattern is looking for digits between 0 and 9.\par
+    + - There must be one or more digits.\par
+    $ - The string must end with something that matches the pattern (i.e., it must be digits, and there should be no extra characters after it).\par
+ \b\i0 Increment Number :-\par
+\b0 number=1\par
+while [[ $number -le 10 ]]\par
+do\par
+\tab echo "number is $number"\par
+\tab number=$(( number + 1 ))\par
+done\par
+\b Decrement Number :- \b0\par
+number =1\par
+while [[ $number -le 10 ]]\par
+do\par
+\tab echo "number is $number"\par
+\tab number=$(( number - 1 ))\par
+done\par
+Multiplaction :- \par
+number=1\par
+multiply_number=5\par
+while [[ $number -le 10 ]]\par
+do\par
+\tab echo "number is $number"\par
+\tab number=$(( number + 1 ))\par
+\tab multipley_number=$(( multiply_number * number ))\par
+done\par
+I want add 1 to 100 number \par
+a=1\par
+b=0\par
+while [[ $a -le 100 ]]\par
+do\par
+\tab a=$(( a + b ))\par
+\tab b=$(( a + 1 ))\par
+done\par
+echo "Total is $a"\par
+\b read file through while loop :- \par
+\b0 cat /etc/passwd | while read line\par
+do\par
+\tab echo "printing line -> $line\par
+\tab sleep 1\par
+done\par
+\b until loop :- \b0  until loop wroking oposite to while loop. The until loop works until the condition becomes true.\par
+read -p "enter a number" number\par
+initnumber=1\par
+until [[ $number -eq 10 ]]\par
+do\par
+\tab echo $((initnumber*number))\par
+((initnumber++))\par
+done\par
+for loop :-\par
+for variable_name in \{1..10\}\par
+do\par
+\tab echo $variable_name\par
+done\par
+\ul\b For loop \ulnone :-  \b0\i for loop read the data word by word and while loop read the data line by line.\par
+#!/bin/bash\par
+for i_varaible in $(ls *.sh)\par
+do \par
+\tab echo "$\{i_varaible\}\par
+done\par
+read the file through for loop :-\par
+for word in  $(cat /etc/passwd)\par
+do\par
+\tab echo $\{word\}\par
+\tab sleep 1\par
+done\i0\par
+\b Brake Statment :- \b0\i if i print the number 1 to 10 but after i reliase i want only 1 to 5 so in this condition we use the brake statment and this statment are usefull for all loop.\par
+start=1\par
+while [[ $start -lt 10 ]]\par
+do\par
+\tab echo "$start"\par
+\tab ((start+1))\par
+if [[ $start -le 5 ]]\par
+then\par
+\tab echo "condition true and going to break the loop"\par
+\tab break;\par
+fi\par
+done\par
+\ul\b Select Statment\ulnone  :- \b0 select statement we are used for show the option through output. If you want disclose the select statment so use use the \b break statment\b0 .\par
+#!/bin/bash\par
+select variable_name in linux windows mac\par
+do\par
+\tab echo "you selected $\{variable_name\}\par
+done\par
+select statment use with case statment\par
+#!/bin/bash\par
+select variable_name in linux windows mac\par
+do\par
+\tab echo "you selected $\{variable_name\}\par
+case $\{variable_name\} in\par
+linux)\tab\par
+\tab echo you selected linux\par
+\tab break # loop exited\tab\par
+;;\par
+windows)\par
+\tab echo "you selected windows"\par
+\tab break\par
+\tab ;;\par
+mac)\par
+\tab echo "you selected windows"\par
+\tab break\par
+\tab ;;\par
+*)\par
+\tab echo "invalid input"\par
+\tab ;;\par
+esac\par
+done\par
+\b\i0 Debug shell scritp :-\par
+\b0\i 1) bash -x file.sh\par
+2) you set debug mode in shell scritp \par
+\tab #!/bin/bash\par
+\tab set -x \par
+3) if you should stop the shell script when fond the any error.\par
+\tab #!/bin/bash\par
+\tab set -e\par
+4) if you want on the debug mode for particular lines.\par
+\tab #!/bin/bash\par
+\tab echo "hello user"\par
+\tab set -x\par
+\tab echo "how are you user" # start the debug mode from this \tab line\par
+\tab echo "i hope all good" # close the debug mode from this \tab line\par
+\tab set +x\par
+\tab echo "please do practice"\par
+\par
+\ul\b\par
+}
+ 
